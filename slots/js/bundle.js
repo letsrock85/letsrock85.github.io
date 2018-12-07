@@ -266,12 +266,12 @@ function () {
       currentScreen.destroy(true);
       app.destroy(true);
       loader.destroy();
-      _state__WEBPACK_IMPORTED_MODULE_6__["default"].reset();
       this.currentScreen = null;
       this.app = null;
       Object.values(_state__WEBPACK_IMPORTED_MODULE_6__["default"].sounds).forEach(function (sound) {
         return sound.stop();
       });
+      _state__WEBPACK_IMPORTED_MODULE_6__["default"].reset();
     }
   }]);
 
@@ -1063,9 +1063,11 @@ function (_PIXI$Container) {
 
     var elements = actual.map(function (data) {
       return _this.createBlock(data);
-    });
+    }); // const maxRows = Math.floor(height / elements[0].heigt);
+
     elements.forEach(function (el, i) {
-      el.y = el.height * i;
+      el.y = el.height * i % height;
+      el.x = Math.floor(el.height * i / height) * el.width;
 
       _this.addChild(el);
     });
