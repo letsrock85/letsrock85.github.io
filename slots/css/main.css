@@ -1,0 +1,25 @@
+/* Common styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+html,
+body {
+  height: 100%; }
+
+button {
+  background-color: #ccc;
+  min-width: 50px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+input {
+  width: 50px; }
+
+/* slotgame.scss */
+/*# sourceMappingURL=main.css.map */
