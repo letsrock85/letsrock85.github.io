@@ -101,9 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _screens_GameScreen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./screens/GameScreen */ "./src/js/SlotGame/screens/GameScreen.js");
 /* harmony import */ var _screens_GameOverScreen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./screens/GameOverScreen */ "./src/js/SlotGame/screens/GameOverScreen.js");
 /* harmony import */ var _screens_PaytableScreen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./screens/PaytableScreen */ "./src/js/SlotGame/screens/PaytableScreen.js");
-/* harmony import */ var _data_paylines_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data/paylines.json */ "./src/js/SlotGame/data/paylines.json");
-var _data_paylines_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./data/paylines.json */ "./src/js/SlotGame/data/paylines.json", 1);
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./state */ "./src/js/SlotGame/state.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./state */ "./src/js/SlotGame/state.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -117,7 +115,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 
 
 
@@ -140,10 +137,7 @@ var defaultOptions = {
   maxWager: 500,
   // interface
   spinTime: 1000,
-  stopDelay: 200,
-  sounds: [],
-  // data
-  paylines: _data_paylines_json__WEBPACK_IMPORTED_MODULE_5__
+  stopDelay: 200
 };
 
 var SlotGame =
@@ -154,7 +148,7 @@ function () {
 
     _classCallCheck(this, SlotGame);
 
-    var config = Object.assign(_state__WEBPACK_IMPORTED_MODULE_6__["default"], defaultOptions, options);
+    var config = Object.assign(_state__WEBPACK_IMPORTED_MODULE_5__["default"], defaultOptions, options);
     this.config = config; // bindings
 
     this.loadScreen = this.loadScreen.bind(this);
@@ -174,7 +168,7 @@ function () {
     this.app = null;
     this.loader = null;
     this.loading = loading;
-    this.state = _state__WEBPACK_IMPORTED_MODULE_6__["default"]; // init
+    this.state = _state__WEBPACK_IMPORTED_MODULE_5__["default"]; // init
 
     this.init();
   }
@@ -268,10 +262,10 @@ function () {
       loader.destroy();
       this.currentScreen = null;
       this.app = null;
-      Object.values(_state__WEBPACK_IMPORTED_MODULE_6__["default"].sounds).forEach(function (sound) {
+      Object.values(_state__WEBPACK_IMPORTED_MODULE_5__["default"].sounds).forEach(function (sound) {
         return sound.stop();
       });
-      _state__WEBPACK_IMPORTED_MODULE_6__["default"].reset();
+      _state__WEBPACK_IMPORTED_MODULE_5__["default"].reset();
     }
   }]);
 
@@ -881,7 +875,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Label */ "./src/js/SlotGame/components/Label.js");
 /* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Button */ "./src/js/SlotGame/components/Button.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./src/js/SlotGame/helpers.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../state */ "./src/js/SlotGame/state.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -891,13 +894,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -909,43 +913,143 @@ var Paylines =
 function (_PIXI$Container) {
   _inherits(Paylines, _PIXI$Container);
 
-  function Paylines(width, height) {
+  function Paylines(slotWidth, slotHeight) {
     var _this;
 
     _classCallCheck(this, Paylines);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Paylines).call(this)); // Size
 
-    _this.width = width;
-    _this.height = height; // Border
+    var panelHeight = 30;
+    _this.width = slotWidth;
+    _this.height = slotHeight + panelHeight; // container for paths
+
+    var container = new pixi_js__WEBPACK_IMPORTED_MODULE_0__["Graphics"]();
+    container.beginFill(0xfff000, 0.01);
+    container.drawRect(0, 0, slotWidth, slotHeight);
+
+    _this.addChild(container); // panel
+
+
+    var panel = new pixi_js__WEBPACK_IMPORTED_MODULE_0__["Container"]();
+    panel.width = slotWidth;
+    panel.height = panelHeight;
+    panel.y = container.y + slotHeight;
+
+    _this.addChild(panel); // Border
+
 
     var border = new pixi_js__WEBPACK_IMPORTED_MODULE_0__["Graphics"]();
     var borderWidth = 5;
     border.lineStyle(borderWidth, 0xdbeff7);
     border.beginFill(0xb7b7ff, 0.5);
-    border.drawRect(0, 0, width, height);
-
-    _this.addChild(border); // Payline label
-
+    border.drawRect(0, 0, slotWidth, panelHeight);
+    panel.addChild(border); // Payline label
 
     var paylinesLabel = new _Label__WEBPACK_IMPORTED_MODULE_1__["default"]("Paylines:");
+    panel.addChild(paylinesLabel); // bindings
 
-    _this.addChild(paylinesLabel); // Wager up button
+    _this.togglePayline = _this.togglePayline.bind(_assertThisInitialized(_assertThisInitialized(_this))); // Members
+
+    _this.container = container;
+    _this.panel = panel;
+    _this.paths = [];
+    _this.buttons = []; // Gen buttons and paths
+
+    _this.generateElements(); // Positions
 
 
-    var btnWagerUp = new _Button__WEBPACK_IMPORTED_MODULE_2__["default"]("1");
-
-    _this.addChild(btnWagerUp); // Positions
-
-
-    var elms = [paylinesLabel, btnWagerUp];
-    _helpers__WEBPACK_IMPORTED_MODULE_3__["spaceAroundX"].apply(void 0, [width, height].concat(elms)); // Members
-    // this.btnPaytable = btnPaytable;
-
+    var elms = [paylinesLabel].concat(_toConsumableArray(_this.buttons));
+    _helpers__WEBPACK_IMPORTED_MODULE_3__["spaceAroundX"].apply(void 0, [slotWidth, panelHeight].concat(_toConsumableArray(elms)));
     return _this;
   }
 
   _createClass(Paylines, [{
+    key: "generateElements",
+    value: function generateElements() {
+      var _this2 = this;
+
+      var panel = this.panel,
+          buttons = this.buttons,
+          paths = this.paths;
+      _state__WEBPACK_IMPORTED_MODULE_4__["default"].paylines.forEach(function (payline, index) {
+        // button
+        var btn = new _Button__WEBPACK_IMPORTED_MODULE_2__["default"]("#".concat(index));
+        btn.on('pointertap', function () {
+          return _this2.togglePayline(index);
+        });
+        panel.addChild(btn);
+        buttons.push(btn); // paths
+
+        var path = _this2.createPathLine(payline);
+
+        paths.push(path);
+      });
+      this.updatePathAndBottonsStatus();
+    }
+  }, {
+    key: "createPathLine",
+    value: function createPathLine(payline) {
+      var paths = this.paths,
+          container = this.container;
+      var reels = _state__WEBPACK_IMPORTED_MODULE_4__["default"].reels,
+          lines = _state__WEBPACK_IMPORTED_MODULE_4__["default"].lines;
+      var slotWidth = container.width;
+      var slotHeight = container.height;
+      var tileWidth = slotWidth / reels;
+      var tileHeight = slotHeight / lines; // colors path
+
+      var pathColors = [0xff0000, 0x00ff00, 0x0000ff, 0x000000, 0xa821f9, 0xed8b00, 0x75b1d6]; // path
+
+      var path = new pixi_js__WEBPACK_IMPORTED_MODULE_0__["Graphics"](); // path.beginFill(0xff3300);
+
+      var first = payline[0];
+      var startX = tileWidth / 2 - 1;
+      var startY = first * tileHeight + tileHeight / 2;
+      var color = pathColors[paths.length % pathColors.length];
+      path.lineStyle(6, color);
+      path.moveTo(startX, startY);
+      payline.forEach(function (pos, i) {
+        var x = i * tileWidth + tileWidth / 2;
+        var y = pos * tileHeight + tileHeight / 2;
+        path.lineTo(x, y);
+      });
+      path.endFill();
+      return path;
+    } // eslint-disable-next-line class-methods-use-this
+
+  }, {
+    key: "togglePayline",
+    value: function togglePayline(index) {
+      var activePaylines = _state__WEBPACK_IMPORTED_MODULE_4__["default"].activePaylines;
+      var found = activePaylines.findIndex(function (i) {
+        return i === index;
+      }); // add
+
+      if (found !== -1) activePaylines.splice(found, 1);else activePaylines.push(index);
+      this.updatePathAndBottonsStatus();
+    }
+  }, {
+    key: "updatePathAndBottonsStatus",
+    value: function updatePathAndBottonsStatus() {
+      var paths = this.paths,
+          buttons = this.buttons,
+          container = this.container;
+      var activePaylines = _state__WEBPACK_IMPORTED_MODULE_4__["default"].activePaylines; //
+
+      paths.forEach(function (path, index) {
+        var isActive = activePaylines.includes(index);
+
+        if (isActive) {
+          container.addChild(path);
+          buttons[index].setFill(['#ffffff', '#00ff99']);
+        } else {
+          container.removeChild(path);
+          buttons[index].setFill(['#ffffff', '#cccccc']);
+        }
+      });
+    }
+  }, {
     key: "update",
     value: function update() {}
   }]);
@@ -977,14 +1081,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1018,56 +1114,23 @@ function (_PIXI$Container) {
     _classCallCheck(this, Paytable);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Paytable).call(this));
-    var lines = _state__WEBPACK_IMPORTED_MODULE_3__["default"].lines,
-        symbols = _state__WEBPACK_IMPORTED_MODULE_3__["default"].symbols,
-        multipliers = _state__WEBPACK_IMPORTED_MODULE_3__["default"].multipliers; // Border
+    var activeMultipliers = _state__WEBPACK_IMPORTED_MODULE_3__["default"].activeMultipliers; // Border
 
     var border = new pixi_js__WEBPACK_IMPORTED_MODULE_0__["Graphics"]();
     border.lineStyle(5, 0xdbeff7);
     var padding = 1;
     border.drawRect(0, 0, width * padding, height * padding);
 
-    _this.addChild(border); // get actual multipliers
+    _this.addChild(border); // create blocks
 
 
-    var actual = [];
-    Object.entries(multipliers).forEach(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          symbolId = _ref2[0],
-          data = _ref2[1];
-
-      var symbolIndex = symbols.findIndex(function (s) {
-        return s.id === symbolId;
-      });
-      var factors = Object.entries(data).filter(function (_ref3) {
-        var _ref4 = _slicedToArray(_ref3, 1),
-            num = _ref4[0];
-
-        return +num <= lines;
-      });
-
-      if (factors) {
-        factors.forEach(function (_ref5) {
-          var _ref6 = _slicedToArray(_ref5, 2),
-              num = _ref6[0],
-              factor = _ref6[1];
-
-          return actual.push({
-            symbolIndex: symbolIndex,
-            num: num,
-            factor: factor
-          });
-        });
-      }
-    }); // create blocks
-
-    var elements = actual.map(function (data) {
+    var elements = activeMultipliers.map(function (data) {
       return _this.createBlock(data);
     }); // const maxRows = Math.floor(height / elements[0].heigt);
 
     elements.forEach(function (el, i) {
       el.y = el.height * i % height;
-      el.x = Math.floor(el.height * i / height) * el.width;
+      el.x = Math.floor(el.height * i / height) * (el.width + 40);
 
       _this.addChild(el);
     });
@@ -1077,10 +1140,10 @@ function (_PIXI$Container) {
 
   _createClass(Paytable, [{
     key: "createBlock",
-    value: function createBlock(_ref7) {
-      var symbolIndex = _ref7.symbolIndex,
-          num = _ref7.num,
-          factor = _ref7.factor;
+    value: function createBlock(_ref) {
+      var symbolIndex = _ref.symbolIndex,
+          matches = _ref.matches,
+          multiplier = _ref.multiplier;
       var symbols = _state__WEBPACK_IMPORTED_MODULE_3__["default"].symbols;
       var width = 30;
       var height = 30;
@@ -1094,7 +1157,7 @@ function (_PIXI$Container) {
       var tile = new _Tile__WEBPACK_IMPORTED_MODULE_2__["default"](tileData);
       container.addChild(tile); // label
 
-      var label = new _Label__WEBPACK_IMPORTED_MODULE_1__["default"](" x ".concat(num, " \t = wage * ").concat(factor));
+      var label = new _Label__WEBPACK_IMPORTED_MODULE_1__["default"](" x ".concat(matches, " \t = wage * ").concat(multiplier));
       label.x = width + 10;
       label.y = (height - label.height) / 2;
       container.addChild(label);
@@ -1609,7 +1672,7 @@ module.exports = {"tile-0.png":{"3":10,"4":20,"5":30},"tile-1.png":{"3":1,"4":2,
 /*! exports provided: 0, 1, 2, default */
 /***/ (function(module) {
 
-module.exports = [{"reels":3,"lines":3,"paylines":[[0,0,0],[1,1,1],[2,2,2]]},{"reels":3,"lines":5,"paylines":[[0,0,0],[2,2,2],[4,4,4]]},{"reels":5,"lines":5,"paylines":[[0,0,0,0,0],[2,2,2,2,2],[4,4,4,4,4]]}];
+module.exports = [{"reels":3,"lines":3,"paylines":[[0,0,0],[1,1,1],[2,2,2],[0,1,2]]},{"reels":3,"lines":5,"paylines":[[0,0,0],[2,2,2],[4,4,4]]},{"reels":5,"lines":5,"paylines":[[0,0,0,0,0],[2,2,2,2,2],[4,4,4,4,4]]}];
 
 /***/ }),
 
@@ -1803,7 +1866,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Controls__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Controls */ "./src/js/SlotGame/components/Controls.js");
 /* harmony import */ var _components_Paylines__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Paylines */ "./src/js/SlotGame/components/Paylines.js");
 /* harmony import */ var _Sound__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Sound */ "./src/js/SlotGame/Sound.js");
-/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../state */ "./src/js/SlotGame/state.js");
+/* harmony import */ var _data_paylines_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../data/paylines.json */ "./src/js/SlotGame/data/paylines.json");
+var _data_paylines_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../data/paylines.json */ "./src/js/SlotGame/data/paylines.json", 1);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../state */ "./src/js/SlotGame/state.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -1851,6 +1916,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var GameScreen =
 /*#__PURE__*/
 function (_Screen) {
@@ -1863,12 +1929,12 @@ function (_Screen) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(GameScreen).call(this, ctx)); // Members
 
-    _this.paylines = [];
     _this.autoSpinValue = false;
     _this.balanceValue = null;
     _this.wagerValue = null;
     _this.winValue = null; // Elements
 
+    _this.paylines = null;
     _this.slot = null;
     _this.paylinesPanel = null;
     _this.info = null;
@@ -1920,16 +1986,18 @@ function (_Screen) {
 
       this.initSymbols();
       this.initSounds();
-      this.initPaylines(); // Create panels
+      this.initPaylines();
+      this.initMultipliers(); // Create panels
 
       var slot = this.createSlot(slotWidth, slotHeight);
-      var paylines = this.createPaylines(panelWidth, panelHeight);
+      var paylines = this.createPaylines(slotWidth, slotHeight);
       var info = this.createInfo(panelWidth, panelHeight);
       var controls = this.createControls(panelWidth, panelHeight); // Positions
 
       slot.position.set((config.width - slotWidth) / 2, marginY);
-      paylines.position.set(marginX, slot.y + slot.height + marginY);
-      info.position.set(marginX, paylines.y + paylines.height + marginY);
+      paylines.position.set(slot.x, slot.y); // info.position.set(marginX, paylines.y + paylines.height + marginY);
+
+      info.position.set(marginX, slot.y + slot.height + panelHeight + marginY);
       controls.position.set(marginX, info.y + info.height + marginY); // Members
 
       this.slot = slot;
@@ -1948,7 +2016,7 @@ function (_Screen) {
     key: "initSymbols",
     value: function initSymbols() {
       // assets
-      _state__WEBPACK_IMPORTED_MODULE_6__["default"].symbols = []; // const sheet = PIXI.loader.resources.symbols;
+      _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols = []; // const sheet = PIXI.loader.resources.symbols;
 
       var sheet = this.loader.resources.symbols; // use textures from assets
 
@@ -1957,7 +2025,7 @@ function (_Screen) {
             id = _ref2[0],
             texture = _ref2[1];
 
-        _state__WEBPACK_IMPORTED_MODULE_6__["default"].symbols.push({
+        _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols.push({
           id: id,
           texture: texture
         });
@@ -1970,16 +2038,58 @@ function (_Screen) {
       Object.values(this.loader.resources).filter(function (asset) {
         return asset.isAudio;
       }).forEach(function (asset) {
-        _state__WEBPACK_IMPORTED_MODULE_6__["default"].sounds[asset.name] = new _Sound__WEBPACK_IMPORTED_MODULE_5__["default"](asset.data);
+        _state__WEBPACK_IMPORTED_MODULE_7__["default"].sounds[asset.name] = new _Sound__WEBPACK_IMPORTED_MODULE_5__["default"](asset.data);
       });
+    }
+  }, {
+    key: "initMultipliers",
+    value: function initMultipliers() {
+      var config = this.config;
+      var multipliers = _state__WEBPACK_IMPORTED_MODULE_7__["default"].multipliers,
+          symbols = _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols;
+      _state__WEBPACK_IMPORTED_MODULE_7__["default"].activeMultipliers = []; // get actual multipliers
+
+      var actual = [];
+      Object.entries(multipliers).forEach(function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+            symbolId = _ref4[0],
+            data = _ref4[1];
+
+        var symbolIndex = symbols.findIndex(function (s) {
+          return s.id === symbolId;
+        });
+        var factors = Object.entries(data).filter(function (_ref5) {
+          var _ref6 = _slicedToArray(_ref5, 1),
+              matches = _ref6[0];
+
+          return +matches <= config.lines;
+        });
+
+        if (factors) {
+          factors.forEach(function (_ref7) {
+            var _ref8 = _slicedToArray(_ref7, 2),
+                matches = _ref8[0],
+                multiplier = _ref8[1];
+
+            actual.push({
+              symbolIndex: symbolIndex,
+              matches: matches,
+              multiplier: multiplier
+            });
+          });
+        }
+      });
+      _state__WEBPACK_IMPORTED_MODULE_7__["default"].activeMultipliers = actual;
     }
   }, {
     key: "initPaylines",
     value: function initPaylines() {
-      var paylines = this.paylines,
-          config = this.config; // find paylines for current game size
+      var _state$paylines;
 
-      var found = config.paylines.find(function (data) {
+      var config = this.config;
+      _state__WEBPACK_IMPORTED_MODULE_7__["default"].paylines = []; // find paylines for current game size
+
+      var found = _data_paylines_json__WEBPACK_IMPORTED_MODULE_6__.find(function (data) {
         return data.reels === config.reels && data.lines === config.lines;
       });
 
@@ -1987,7 +2097,7 @@ function (_Screen) {
         throw new Error("Paylines for current game size not found");
       }
 
-      paylines.push.apply(paylines, _toConsumableArray(found.paylines));
+      (_state$paylines = _state__WEBPACK_IMPORTED_MODULE_7__["default"].paylines).push.apply(_state$paylines, _toConsumableArray(found.paylines));
     }
   }, {
     key: "createSlot",
@@ -2007,9 +2117,7 @@ function (_Screen) {
   }, {
     key: "createPaylines",
     value: function createPaylines(width, height) {
-      var paylines = new _components_Paylines__WEBPACK_IMPORTED_MODULE_4__["default"](width, height); // handlers
-      // paylines.btnSpin.on('pointertap', () => this.togglePayline()));
-
+      var paylines = new _components_Paylines__WEBPACK_IMPORTED_MODULE_4__["default"](width, height);
       return this.addChild(paylines);
     }
   }, {
@@ -2040,33 +2148,86 @@ function (_Screen) {
       return this.addChild(controls);
     }
   }, {
+    key: "analyseResult",
+    value: function analyseResult(result) {
+      var wager = this.wager;
+      var activePaylines = _state__WEBPACK_IMPORTED_MODULE_7__["default"].activePaylines,
+          paylines = _state__WEBPACK_IMPORTED_MODULE_7__["default"].paylines,
+          symbols = _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols,
+          multipliers = _state__WEBPACK_IMPORTED_MODULE_7__["default"].multipliers;
+      var winPaylines = {};
+      activePaylines.forEach(function (paylineIndex) {
+        var payline = paylines[paylineIndex];
+        if (!payline) return; // number of repetitions per line
+
+        var stats = payline.map(function (pos, i) {
+          return result[pos][i];
+        }) //
+        .reduce(function (res, symbIndex) {
+          res[symbIndex] = res[symbIndex] ? res[symbIndex] + 1 : 1;
+          return res;
+        }, {});
+        console.log("\n        payline = ".concat(payline, "\n        stats:: ").concat(Object.entries(stats).join(' | '), "\n        ")); // check win
+
+        Object.entries(stats).forEach(function (_ref9) {
+          var _ref10 = _slicedToArray(_ref9, 2),
+              symbolIndex = _ref10[0],
+              repetitions = _ref10[1];
+
+          //
+          var symbolId = symbols[symbolIndex].id;
+          var multiplier = multipliers[symbolId][repetitions]; // if win
+
+          if (multiplier) {
+            var prevSum = winPaylines[paylineIndex] || 0;
+            var win = multiplier * wager;
+            winPaylines[paylineIndex] = prevSum + win;
+            console.log("win:: symbolId: ".concat(symbolId, ", m: ").concat(multiplier, ", win: ").concat(win, ", prevSum: ").concat(prevSum));
+          }
+        });
+      }); // cacl sum
+
+      var totalWin = 0;
+      Object.entries(winPaylines).forEach(function (_ref11) {
+        var _ref12 = _slicedToArray(_ref11, 2),
+
+        /* paylineIndex */
+        sum = _ref12[1];
+
+        totalWin += sum;
+      });
+      return totalWin;
+    }
+  }, {
     key: "onSpinComplete",
     value: function onSpinComplete(result) {
       var autoSpinMode = this.autoSpinMode,
           spin = this.spin; // get win paylines
 
       console.log("GameScreen.onSpinComplete:: result: ".concat(result));
+      var totalWin = this.analyseResult(result);
+
+      if (totalWin) {
+        this.win = totalWin;
+        _state__WEBPACK_IMPORTED_MODULE_7__["default"].sounds.victory.play();
+      }
+
       this.updateButtonStatus(); // game over
 
       if (this.balance < this.config.wager) {
         this.loadScreen('gameover');
-        _state__WEBPACK_IMPORTED_MODULE_6__["default"].sounds.gameover.play();
+        _state__WEBPACK_IMPORTED_MODULE_7__["default"].sounds.gameover.play();
         return;
-      } // victory
-
-
-      if (Math.random() > 0.6) {
-        _state__WEBPACK_IMPORTED_MODULE_6__["default"].sounds.victory.play();
       } // autospin
 
 
-      if (autoSpinMode) setTimeout(spin, _state__WEBPACK_IMPORTED_MODULE_6__["default"].autoSpinDelay);
+      if (autoSpinMode) setTimeout(spin, _state__WEBPACK_IMPORTED_MODULE_7__["default"].autoSpinDelay);
     }
   }, {
     key: "genRandomResult",
     value: function genRandomResult() {
       var config = this.config;
-      var symbols = _state__WEBPACK_IMPORTED_MODULE_6__["default"].symbols;
+      var symbols = _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols;
       var result = []; // generation of random indexes of symbols array
 
       for (var i = 0; i < config.lines; i += 1) {
@@ -2084,16 +2245,21 @@ function (_Screen) {
     key: "genSuccessedResult",
     value: function genSuccessedResult() {
       var config = this.config;
-      var symbols = _state__WEBPACK_IMPORTED_MODULE_6__["default"].symbols;
+      var symbols = _state__WEBPACK_IMPORTED_MODULE_7__["default"].symbols,
+          activePaylines = _state__WEBPACK_IMPORTED_MODULE_7__["default"].activePaylines,
+          paylines = _state__WEBPACK_IMPORTED_MODULE_7__["default"].paylines;
       var result = [];
-      var winLine = Math.floor(Math.random() * config.lines);
-      var winSymbolIndex = Math.floor(Math.random() * config.lines); // gen
+      var activeIndex = Math.floor(Math.random() * activePaylines.length);
+      var paylineIndex = activePaylines[activeIndex];
+      var winPayline = paylines[paylineIndex] || [];
+      var winSymbolIndex = Math.floor(Math.random() * symbols.length);
+      console.log("winPayline: ".concat(winPayline)); // gen
 
       for (var i = 0; i < config.lines; i += 1) {
         result[i] = [];
 
         for (var j = 0; j < config.reels; j += 1) {
-          var index = i === winLine ? winSymbolIndex : Math.floor(Math.random() * symbols.length);
+          var index = i === winPayline[j] ? winSymbolIndex : Math.floor(Math.random() * symbols.length);
           result[i][j] = index;
         }
       }
@@ -2119,6 +2285,7 @@ function (_Screen) {
 
       if (balance >= wager) {
         this.balance -= this.wager;
+        this.win = 0;
         var result = this.genSuccessedResult();
         slot.spinReels(result);
       }
@@ -2133,6 +2300,7 @@ function (_Screen) {
 
       if (balance >= wager) {
         this.balance -= this.wager;
+        this.win = 0;
         var result = this.genRandomResult();
         slot.spinReels(result);
       }
@@ -2178,7 +2346,6 @@ function (_Screen) {
       if (slot.isSpining || balance <= 0) btnCheatSpin.disable();else btnCheatSpin.enable(); // game over
 
       if (balance <= 0) {
-        controls.btnAutoSpin.disable();
         this.autoSpinMode = false;
       }
     }
@@ -2225,6 +2392,7 @@ function (_Screen) {
     set: function set(value) {
       var info = this.info;
       this.winValue = value;
+      this.balance += value;
       info.winLabel.text = "Win: ".concat(value);
     }
   }, {
@@ -2457,8 +2625,10 @@ var initialState = {
   spinTime: 1000,
   stopDelay: 200,
   // data
+  activePaylines: [],
   paylines: [],
   multipliers: _data_multipliers_json__WEBPACK_IMPORTED_MODULE_0__,
+  activeMultipliers: [],
   // Assets
   sounds: {},
   symbols: []
@@ -2478,6 +2648,7 @@ function () {
     value: function reset() {
       Object.assign(this, initialState);
       this.symbols = [];
+      this.activePaylines = [1];
     }
   }]);
 
